@@ -7,9 +7,20 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+
+add_library(${PROJECT_NAME} src/libserial_bridge.cpp)
+target_include_directories(
+  ${PROJECT_NAME} public
+  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+)
+
+install(
+  TARGETS ${PROJECT_NAME}
+  EXPORT export_${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -22,5 +33,13 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+ament_export_libraries(
+  ${PROJECT_NAME}
+)
+
+ament_export_targets(
+  export_${PROJECT_NAME}
+)
 
 ament_package()
