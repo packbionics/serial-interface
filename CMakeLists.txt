@@ -7,10 +7,13 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(libserial REQUIRED)
 
 add_library(${PROJECT_NAME} src/libserial_bridge.cpp)
 target_include_directories(
-  ${PROJECT_NAME} public
+  ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
 
