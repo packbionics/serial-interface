@@ -38,3 +38,53 @@
 // THE SOFTWARE.
 
 #include <serial_interface/libserial_bridge.hpp>
+
+#include <vector>
+#include <memory>
+
+namespace serial {
+
+    typedef std::shared_ptr<ImuFrame> ImuPtr;
+    typedef std::shared_ptr<LoadCellFrame> LoadCellPtr;
+
+    class LibSerialAdapter {
+        public:
+
+            /**
+             * @brief Construct a new Lib Serial Adapter object
+             * 
+             */
+            LibSerialAdapter();
+
+            /**
+             * @brief Get the Imu object based on a given index
+             * 
+             * @param index identifies the IMU to retrieve
+             * @return ImuPtr reference to the IMU data
+             */
+            ImuPtr getImu(int index);
+
+            /**
+             * @brief Get the Load Cell object
+             * 
+             * @param index  identifies the load cell to retrieve
+             * @return LoadCellPtr reference to the load cell data
+             */
+            LoadCellPtr getLoadCell(int index);
+
+        private:
+
+            /**
+             * @brief Add a representation of an IMU
+             * 
+             */
+            void addImu();
+
+            /** Stores data for one or more inertial measurement units (IMU) */
+            std::vector<ImuPtr> imus;
+
+            /** Stores data for one or more load cells */
+            std::vector<LoadCellPtr> loadCells;
+    };
+
+}

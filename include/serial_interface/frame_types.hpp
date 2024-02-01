@@ -58,112 +58,112 @@ static constexpr unsigned int INDEX_YAW = 2;
 
 /**
  * @brief Structured representation of the linear acceleration of an object
- * 
+ *
  */
 struct LinearAccel
 {
-    /** Maintains linear acceleration components */
-    double mData[LINEAR_COMPONENTS];
+  /** Maintains linear acceleration components */
+  double mData[LINEAR_COMPONENTS];
 
-    /**
-     * @brief Construct a new Linear Accel object
-     * 
-     * @param data array containing ordered values for the x, y, and z components
-     */
-    LinearAccel(const double data[LINEAR_COMPONENTS])
-    {
-        // Copies parameter array contents into mData as the destination
-        std::memcpy(mData, data, sizeof(double) * LINEAR_COMPONENTS);
-    }
+  /**
+   * @brief Construct a new Linear Accel object
+   *
+   * @param data array containing ordered values for the x, y, and z components
+   */
+  LinearAccel(const double data[LINEAR_COMPONENTS])
+  {
+    // Copies parameter array contents into mData as the destination
+    std::memcpy(mData, data, sizeof(double) * LINEAR_COMPONENTS);
+  }
 
-    /**
-     * @brief Construct a new Linear Accel object
-     * 
-     * @param x x-coordinate of the linear acceleration
-     * @param y y-coordinate of the linear acceleration
-     * @param z z-coordinate of the linear acceleration
-     */
-    LinearAccel(double x, double y, double z)
-    {
-        mData[INDEX_X] = x;
-        mData[INDEX_Y] = y;
-        mData[INDEX_Z] = z;
-    }
+  /**
+   * @brief Construct a new Linear Accel object
+   *
+   * @param x x-coordinate of the linear acceleration
+   * @param y y-coordinate of the linear acceleration
+   * @param z z-coordinate of the linear acceleration
+   */
+  LinearAccel(double x, double y, double z)
+  {
+    mData[INDEX_X] = x;
+    mData[INDEX_Y] = y;
+    mData[INDEX_Z] = z;
+  }
 };
 
 /**
  * @brief Structured representation of the angular velocity of an object
- * 
+ *
  */
 struct AngularVel
 {
-    /** Maintains angular velocity components */
-    double mData[ANGULAR_COMPONENTS];
+  /** Maintains angular velocity components */
+  double mData[ANGULAR_COMPONENTS];
 
-    /**
-     * @brief Construct a new Angular Vel object
-     * 
-     * @param data array containing ordered values for the roll, pitch, and yaw components
-     */
-    AngularVel(const double data[ANGULAR_COMPONENTS])
-    {
-        // Copies parameter array contents into mData as the destination
-        std::memcpy(mData, data, sizeof(double) * ANGULAR_COMPONENTS);
-    }
+  /**
+   * @brief Construct a new Angular Vel object
+   *
+   * @param data array containing ordered values for the roll, pitch, and yaw components
+   */
+  AngularVel(const double data[ANGULAR_COMPONENTS])
+  {
+    // Copies parameter array contents into mData as the destination
+    std::memcpy(mData, data, sizeof(double) * ANGULAR_COMPONENTS);
+  }
 
-    /**
-     * @brief Construct a new Angular Vel object
-     * 
-     * @param roll roll-coordinate of the angular velocity
-     * @param pitch pitch-coordinate of the angular velocity
-     * @param yaw yaw-coordinate of the angular velocity
-     */
-    AngularVel(double roll, double pitch, double yaw)
-    {
-        mData[INDEX_X] = roll;
-        mData[INDEX_Y] = pitch;
-        mData[INDEX_Z] = yaw;
-    }
+  /**
+   * @brief Construct a new Angular Vel object
+   *
+   * @param roll roll-coordinate of the angular velocity
+   * @param pitch pitch-coordinate of the angular velocity
+   * @param yaw yaw-coordinate of the angular velocity
+   */
+  AngularVel(double roll, double pitch, double yaw)
+  {
+    mData[INDEX_X] = roll;
+    mData[INDEX_Y] = pitch;
+    mData[INDEX_Z] = yaw;
+  }
 };
 
 /**
  * @brief Structured representation of sensor data provided by an IMU (inertial measurement unit)
- * 
+ *
  */
 struct ImuFrame
 {
-    LinearAccel mLinAccel;
-    AngularVel mAngVel;
+  LinearAccel mLinAccel;
+  AngularVel mAngVel;
 
-    /**
-     * @brief Construct a new Imu Frame object
-     * 
-     * @param linAccel structured representation of the linear acceleration
-     * @param angVel structured representation of the angular velocity
-     */
-    ImuFrame(const LinearAccel &linAccel, const AngularVel &angVel)
-        : mLinAccel(linAccel), mAngVel(angVel)
-    {}
+  /**
+   * @brief Construct a new Imu Frame object
+   *
+   * @param linAccel structured representation of the linear acceleration
+   * @param angVel structured representation of the angular velocity
+   */
+  ImuFrame(const LinearAccel & linAccel, const AngularVel & angVel)
+  : mLinAccel(linAccel), mAngVel(angVel)
+  {}
 };
 
 /**
  * @brief Structured representation of sensor data provided by a load cell
- * 
+ *
  */
 struct LoadCellFrame
 {
-    /** Force or weight as measured by load cell */
-    double mData;
+  /** Force or weight as measured by load cell */
+  double mData;
 
-    /**
-     * @brief Construct a new Load Cell Frame object
-     * 
-     * @param data Force or weight as measured by load cell
-     */
-    LoadCellFrame(const double &data)
-    {
-        mData = data;
-    }
+  /**
+   * @brief Construct a new Load Cell Frame object
+   *
+   * @param data Force or weight as measured by load cell
+   */
+  LoadCellFrame(const double & data)
+  {
+    mData = data;
+  }
 };
 
 }

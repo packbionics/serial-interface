@@ -18,6 +18,11 @@ target_include_directories(
 )
 
 install(
+  DIRECTORY include/${PROJECT_NAME}
+  DESTINATION include/
+)
+
+install(
   TARGETS ${PROJECT_NAME}
   EXPORT export_${PROJECT_NAME}
   RUNTIME DESTINATION bin
@@ -43,6 +48,10 @@ ament_export_libraries(
 
 ament_export_targets(
   export_${PROJECT_NAME}
+)
+
+ament_export_include_directories(
+  include
 )
 
 ament_package()

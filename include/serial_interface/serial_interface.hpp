@@ -48,16 +48,15 @@ namespace serial
 class SerialInterface
 {
 public:
-
-    /**
-     * @brief Reads a single message frame from serial port
-     * 
-     * The behavior of this method can be modified through
-     * extending the SerialInterface class and overriding the method
-     * 
-     * @return DataFrame representing a block of data containing sensor information
-     */
-    virtual DataFrame readFrame() = 0;
+  /**
+   * @brief Reads a single message frame from serial port
+   *
+   * The behavior of this method can be modified through
+   * extending the SerialInterface class and overriding the method
+   *
+   * @return DataFrame representing a block of data containing sensor information
+   */
+  virtual DataFrame readFrame() = 0;
 };
 
 }

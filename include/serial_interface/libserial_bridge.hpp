@@ -52,13 +52,13 @@ namespace serial
 class LibSerialBridge : public SerialInterface
 {
 public:
-    LibSerialBridge(std::string portName, unsigned int baudRate);
+  LibSerialBridge(std::string portName, unsigned int baudRate);
 
-    DataFrame readFrame();
+  DataFrame readFrame();
+
 private:
-
-    /** Handle to the open serial port */
-    LibSerial::SerialPort mPortHandle;
+  /** Handle to the open serial port */
+  LibSerial::SerialPort mPortHandle;
 };
 
 }

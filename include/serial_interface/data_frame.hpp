@@ -47,44 +47,43 @@ namespace serial
 
 /**
  * @brief Unstructured representation of message received through serial port
- * 
+ *
  */
 class DataFrame
 {
 public:
+  /**
+   * @brief Construct a new Data Frame object
+   *
+   * @param data raw bytes received through serial port
+   */
+  DataFrame(const char * data);
 
-    /**
-     * @brief Construct a new Data Frame object
-     * 
-     * @param data raw bytes received through serial port
-     */
-    DataFrame(const char *data);
+  /**
+   * @brief Interprets the raw bytes as IMU sensor data
+   *
+   * This method constructs an ImuFrame with values corresponding
+   * to the stored bytes. The returned object stores a structured copy
+   * of the data
+   *
+   * @return ImuFrame structured copy of the message data
+   */
+  ImuFrame asImu();
 
-    /**
-     * @brief Interprets the raw bytes as IMU sensor data
-     * 
-     * This method constructs an ImuFrame with values corresponding
-     * to the stored bytes. The returned object stores a structured copy
-     * of the data
-     * 
-     * @return ImuFrame structured copy of the message data
-     */
-    ImuFrame asImu();
+  /**
+   * @brief Interprets the raw bytes as IMU sensor data
+   *
+   * This method constructs an LoadCellFrame with values corresponding
+   * to the stored bytes. The returned object stores a structured copy
+   * of the data
+   *
+   * @return LoadCellFrame structured copy of the message data
+   */
+  LoadCellFrame asLoadCell();
 
-    /**
-     * @brief Interprets the raw bytes as IMU sensor data
-     * 
-     * This method constructs an LoadCellFrame with values corresponding
-     * to the stored bytes. The returned object stores a structured copy
-     * of the data
-     * 
-     * @return LoadCellFrame structured copy of the message data
-     */
-    LoadCellFrame asLoadCell();
 private:
-
-    /** Stores the contents of the message frame */
-    const char *data;
+  /** Stores the contents of the message frame */
+  const char * data;
 };
 
 }
