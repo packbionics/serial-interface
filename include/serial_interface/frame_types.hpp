@@ -65,6 +65,13 @@ struct LinearAccel
   /** Maintains linear acceleration components */
   double mData[LINEAR_COMPONENTS];
 
+  LinearAccel()
+  {
+    mData[INDEX_X] = 0.0;
+    mData[INDEX_Y] = 0.0;
+    mData[INDEX_Z] = 0.0;
+  }
+
   /**
    * @brief Construct a new Linear Accel object
    *
@@ -88,6 +95,21 @@ struct LinearAccel
     mData[INDEX_X] = x;
     mData[INDEX_Y] = y;
     mData[INDEX_Z] = z;
+  }
+
+  double getX()
+  {
+    return mData[INDEX_X];
+  }
+
+  double getY()
+  {
+    return mData[INDEX_Y];
+  }
+
+  double getZ()
+  {
+    return mData[INDEX_Z];
   }
 };
 
@@ -120,9 +142,24 @@ struct AngularVel
    */
   AngularVel(double roll, double pitch, double yaw)
   {
-    mData[INDEX_X] = roll;
-    mData[INDEX_Y] = pitch;
-    mData[INDEX_Z] = yaw;
+    mData[INDEX_ROLL] = roll;
+    mData[INDEX_PITCH] = pitch;
+    mData[INDEX_YAW] = yaw;
+  }
+
+  double getRoll()
+  {
+    return mData[INDEX_ROLL];
+  }
+
+  double getPitch()
+  {
+    return mData[INDEX_PITCH];
+  }
+
+  double getYaw()
+  {
+    return mData[INDEX_YAW];
   }
 };
 
@@ -130,11 +167,9 @@ struct AngularVel
  * @brief Structured representation of sensor data provided by an IMU (inertial measurement unit)
  *
  */
-struct ImuFrame
+class ImuFrame
 {
-  LinearAccel mLinAccel;
-  AngularVel mAngVel;
-
+public:
   /**
    * @brief Construct a new Imu Frame object
    *
@@ -144,26 +179,24 @@ struct ImuFrame
   ImuFrame(const LinearAccel & linAccel, const AngularVel & angVel)
   : mLinAccel(linAccel), mAngVel(angVel)
   {}
-};
 
-/**
- * @brief Structured representation of sensor data provided by a load cell
- *
- */
-struct LoadCellFrame
-{
-  /** Force or weight as measured by load cell */
-  double mData;
+  ImuFrame()
+  : mLinAccel(LinearAccel({0.0, 0.0, 0.0})), mAngVel(AngularVel(0.0, 0.0, 0.0))
+  {}
 
-  /**
-   * @brief Construct a new Load Cell Frame object
-   *
-   * @param data Force or weight as measured by load cell
-   */
-  LoadCellFrame(const double & data)
+  LinearAccel getLinear()
   {
-    mData = data;
+    return mLinAccel;
   }
+
+  AngularVel getAngular()
+  {
+    return mAngVel;
+  }
+
+private:
+  LinearAccel mLinAccel;
+  AngularVel mAngVel;
 };
 
 }

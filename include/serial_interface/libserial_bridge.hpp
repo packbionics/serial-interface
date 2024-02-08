@@ -44,53 +44,44 @@
 
 #include <string>
 
-#include <serial_interface/serial_interface.hpp>
+#include <serial_interface/frame_types.hpp>
 
-namespace serial {
+namespace serial
+{
 
-    typedef std::shared_ptr<ImuFrame> ImuPtr;
-    typedef std::shared_ptr<LoadCellFrame> LoadCellPtr;
+typedef std::shared_ptr<ImuFrame> ImuPtr;
 
-    class LibSerialBridge {
-        public:
+/**
+     * @brief Provides a direct interface to sensors and actuators
+     *
+     */
+class LibSerialBridge
+{
+public:
+  /**
+           * @brief Construct a new Lib Serial Adapter object
+           *
+           */
+  LibSerialBridge();
 
-            /**
-             * @brief Construct a new Lib Serial Adapter object
-             * 
-             */
-            LibSerialBridge();
+  /**
+           * @brief Get the Imu object based on a given index
+           *
+           * @param index identifies the IMU to retrieve
+           * @return ImuPtr reference to the IMU data
+           */
+  ImuPtr getImu(size_t index);
 
-            /**
-             * @brief Get the Imu object based on a given index
-             * 
-             * @param index identifies the IMU to retrieve
-             * @return ImuPtr reference to the IMU data
-             */
-            ImuPtr getImu(int index);
+private:
+  /**
+           * @brief Add a representation of an IMU
+           *
+           */
+  void addImu();
 
-            /**
-             * @brief Get the Load Cell object
-             * 
-             * @param index  identifies the load cell to retrieve
-             * @return LoadCellPtr reference to the load cell data
-             */
-            LoadCellPtr getLoadCell(int index);
-
-        private:
-
-            /**
-             * @brief Add a representation of an IMU
-             * 
-             */
-            void addImu();
-
-            /** Stores data for one or more inertial measurement units (IMU) */
-            std::vector<ImuPtr> imus;
-
-            /** Stores data for one or more load cells */
-            std::vector<LoadCellPtr> loadCells;
-    };
-
+  /** Stores data for one or more inertial measurement units (IMU) */
+  std::vector<ImuPtr> imus;
+};
 }
 
 #endif // LIBSERIAL_BRIDGE_HPP

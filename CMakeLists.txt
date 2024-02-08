@@ -40,6 +40,15 @@ if(BUILD_TESTING)
   # a copyright and license is added to all source files
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(libserial_bridge_test test/test_libserial_bridge.cpp)
+  target_include_directories(libserial_bridge_test PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+  )
+
+  target_link_libraries(libserial_bridge_test ${PROJECT_NAME})
 endif()
 
 ament_export_libraries(

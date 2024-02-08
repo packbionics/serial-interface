@@ -42,37 +42,25 @@
 #include <vector>
 #include <memory>
 
-namespace serial {
-    LibSerialBridge::LibSerialBridge(){
-        //No state to initialize
-    }   
-    
-    /**
-     * Getter for ImuPtr at argued index
-     * 
-     * @param index int value of index to get from
-     * @return ImuPtr at indexed location
-     * @throws runtime error if index out of range
-    */
-    ImuPtr LibSerialBridge::getImu(int index){
-        if(index < 0 || index >= imus.size()){
-            throw std::runtime_error("Index out of bounds.");
-        }
-        return imus[index];
-    }
+namespace serial
+{
 
-    /**
-     * Getter for LoadCellPtr at argued index
-     * 
-     * @param index int value of index to get from
-     * @return LoadCellPtr at indexed location
-     * @throws runtime error if index out of range
-    */
-    LoadCellPtr LibSerialBridge::getLoadCell(int index){
-        if(index < 0 || index >= loadCells.size()){
-            throw std::runtime_error("Index out of bounds.");
-        }
-        return loadCells[index];
-    }
+LibSerialBridge::LibSerialBridge()
+{
+  addImu();
+}
+
+ImuPtr LibSerialBridge::getImu(size_t index)
+{
+  if (index >= imus.size()) {
+    throw std::runtime_error("Index out of bounds.");
+  }
+  return imus[index];
+}
+
+void LibSerialBridge::addImu()
+{
+  imus.push_back(std::make_shared<ImuFrame>());
+}
 
 }
