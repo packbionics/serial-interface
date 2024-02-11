@@ -52,35 +52,72 @@ namespace serial
 typedef std::shared_ptr<ImuFrame> ImuPtr;
 
 /**
-     * @brief Provides a direct interface to sensors and actuators
-     *
-     */
+ * @brief Provides a direct interface to sensors and actuators
+ *
+ */
 class LibSerialBridge
 {
 public:
   /**
-           * @brief Construct a new Lib Serial Adapter object
-           *
-           */
+   * @brief Construct a new Lib Serial Adapter object
+   *
+   */
   LibSerialBridge();
 
   /**
-           * @brief Get the Imu object based on a given index
-           *
-           * @param index identifies the IMU to retrieve
-           * @return ImuPtr reference to the IMU data
-           */
+   * @brief Construct a new Lib Serial Adapter object
+   *
+   * @param name file name of the serial port
+   * @param baudRate BAUD rate at which data is communicated
+   * @throws LibSerial::AlreadyOpen if the port is alread open
+   * @throws LibSerial::OpenFailed if the port could not be opened
+   * @throws UnsupportedBaudRate if an invalid BAUD rate is provided
+   * @throws std::invalid_argument if an invalid argument is provided
+   */
+  LibSerialBridge(std::string name, LibSerial::BaudRate baudRate);
+
+  /**
+   * @brief Get the Imu object based on a given index
+   *
+   * @param index identifies the IMU to retrieve
+   * @return ImuPtr reference to the IMU data
+   */
   ImuPtr getImu(size_t index);
+
+  /**
+   * @brief Sends a stream of bytes through the serial connections
+   *
+   * @param data collection of bytes to send to controller
+   * @return true if the data was successfully written to the port or false otherwise
+   */
+  bool writeData(const char * data);
 
 private:
   /**
-           * @brief Add a representation of an IMU
-           *
-           */
+   * @brief Add a representation of an IMU
+   *
+   */
   void addImu();
+
+  /**
+   * @brief Read a sequence of data and store it in the given buffer.
+   * 
+   * The given buffer is assumed to be at least as large as the given capacity. The
+   * function may return a value less than the capacity if there is no more data to read.
+   * 
+   * @param data buffer to store processed data
+   * @param capacity upper bound on the number of bytes read
+   * @return the number of bytes processed
+   */
+  size_t readData(char *data, size_t capacity);
+
+  /** Provides an interface to the embedded controller through serial communication */
+  std::shared_ptr<LibSerial::SerialPort> port;
 
   /** Stores data for one or more inertial measurement units (IMU) */
   std::vector<ImuPtr> imus;
+
+  static constexpr size_t RD_TIMEOUT = 200;
 };
 }
 

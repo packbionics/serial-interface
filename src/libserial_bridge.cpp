@@ -47,6 +47,20 @@ namespace serial
 
 LibSerialBridge::LibSerialBridge()
 {
+
+  // Set up the connection with the serial port
+  port = std::make_shared<LibSerial::SerialPort>();
+
+  addImu();
+}
+
+LibSerialBridge::LibSerialBridge(std::string name, LibSerial::BaudRate baudRate)
+{
+
+  // Set up the connection with the serial port
+  port = std::make_shared<LibSerial::SerialPort>(name);
+  port->SetBaudRate(baudRate);
+
   addImu();
 }
 
@@ -61,6 +75,40 @@ ImuPtr LibSerialBridge::getImu(size_t index)
 void LibSerialBridge::addImu()
 {
   imus.push_back(std::make_shared<ImuFrame>());
+}
+
+bool LibSerialBridge::writeData(const char * data)
+{
+  if (port->IsOpen()) {
+    port->Write(std::string(data));
+    return true;
+  }
+
+  return false;
+}
+
+size_t LibSerialBridge::readData(char *data, size_t capacity)
+{
+
+  // Check if the port is open before reading
+  if(!port->IsOpen()) {
+    return false;
+  }
+
+  int counter = 0;
+
+  // Continue reading until there is no more data or the limit is reached
+  while(port->IsDataAvailable() && counter < capacity) {
+
+    try {
+      port->ReadByte(data[counter], LibSerialBridge::RD_TIMEOUT);
+      counter++;
+    } catch(const LibSerial::ReadTimeout &exc) {
+      return counter;
+    }
+  }
+
+  return counter;
 }
 
 }
