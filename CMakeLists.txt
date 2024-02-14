@@ -18,6 +18,7 @@ target_include_directories(
   ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
 )
+target_link_libraries(${PROJECT_NAME} -lserial)
 
 install(
   DIRECTORY include/${PROJECT_NAME}
@@ -50,7 +51,7 @@ if(BUILD_TESTING)
     $<INSTALL_INTERFACE:include>
   )
 
-  target_link_libraries(libserial_bridge_test ${PROJECT_NAME} -lserial)
+  target_link_libraries(libserial_bridge_test ${PROJECT_NAME})
 endif()
 
 ament_export_libraries(
