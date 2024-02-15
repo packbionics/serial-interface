@@ -45,6 +45,14 @@
 namespace serial
 {
 
+std::string LibSerialBridge::X_KEY = "x";
+std::string LibSerialBridge::Y_KEY = "y";
+std::string LibSerialBridge::Z_KEY = "z";
+
+std::string LibSerialBridge::ROLL_KEY = "r";
+std::string LibSerialBridge::PITCH_KEY = "p";
+std::string LibSerialBridge::YAW_KEY = "y";
+
 LibSerialBridge::LibSerialBridge()
 {
 
@@ -77,7 +85,7 @@ void LibSerialBridge::addImu()
   imus.push_back(std::make_shared<ImuFrame>());
 }
 
-bool LibSerialBridge::writeData(const char * data)
+bool LibSerialBridge::writeData(const std::string &data)
 {
   if (port->IsOpen()) {
     port->Write(std::string(data));
@@ -87,28 +95,41 @@ bool LibSerialBridge::writeData(const char * data)
   return false;
 }
 
-size_t LibSerialBridge::readData(char *data, size_t capacity)
+void LibSerialBridge::update() {
+  
+}
+
+size_t LibSerialBridge::readData(std::string &data, size_t capacity)
 {
 
+  // Ensure there is enough space to fit the limit
+  if(data.size() < capacity) {
+    data.resize(capacity);
+  }
+
   // Check if the port is open before reading
-  if(!port->IsOpen()) {
+  if (!port->IsOpen()) {
     return false;
   }
 
-  int counter = 0;
+  size_t counter = 0;
 
   // Continue reading until there is no more data or the limit is reached
-  while(port->IsDataAvailable() && counter < capacity) {
+  while (port->IsDataAvailable() && counter < capacity) {
 
     try {
       port->ReadByte(data[counter], LibSerialBridge::RD_TIMEOUT);
       counter++;
-    } catch(const LibSerial::ReadTimeout &exc) {
+    } catch (const LibSerial::ReadTimeout & exc) {
       return counter;
     }
   }
 
   return counter;
+}
+
+void LibSerialBridge::parseData(std::map<std::string, double> &/*data*/) {
+  throw std::runtime_error("Not yet implemented (LibSerialBridge::parseData).");
 }
 
 }
