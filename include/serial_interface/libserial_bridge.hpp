@@ -91,11 +91,11 @@ public:
    * @param data collection of bytes to send to controller
    * @return true if the data was successfully written to the port or false otherwise
    */
-  bool writeData(const std::string &data);
+  bool writeData(const std::string & data);
 
   /**
    * @brief Update the internal representation of the sensor measurements
-   * 
+   *
    */
   void update();
 
@@ -108,10 +108,10 @@ private:
 
   /**
    * @brief Converts the raw data retrieved from the serial communication device into a structured format
-   * 
+   *
    * @param data represents the measurements from the sensors, the keys represent the semantic meaning of the values
    */
-  void parseData(std::map<std::string, double> &data);
+  void parseData(std::map<std::string, double> & data);
 
   /**
    * @brief Read a sequence of data and store it in the given buffer.
@@ -123,7 +123,7 @@ private:
    * @param capacity upper bound on the number of bytes read
    * @return the number of bytes processed
    */
-  size_t readData(std::string &data, size_t capacity);
+  size_t readData(std::string & data, size_t capacity);
 
   /** Provides an interface to the embedded controller through serial communication */
   std::shared_ptr<LibSerial::SerialPort> port;

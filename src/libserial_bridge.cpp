@@ -85,7 +85,7 @@ void LibSerialBridge::addImu()
   imus.push_back(std::make_shared<ImuFrame>());
 }
 
-bool LibSerialBridge::writeData(const std::string &data)
+bool LibSerialBridge::writeData(const std::string & data)
 {
   if (port->IsOpen()) {
     port->Write(std::string(data));
@@ -95,15 +95,16 @@ bool LibSerialBridge::writeData(const std::string &data)
   return false;
 }
 
-void LibSerialBridge::update() {
-  
+void LibSerialBridge::update()
+{
+
 }
 
-size_t LibSerialBridge::readData(std::string &data, size_t capacity)
+size_t LibSerialBridge::readData(std::string & data, size_t capacity)
 {
 
   // Ensure there is enough space to fit the limit
-  if(data.size() < capacity) {
+  if (data.size() < capacity) {
     data.resize(capacity);
   }
 
@@ -128,7 +129,8 @@ size_t LibSerialBridge::readData(std::string &data, size_t capacity)
   return counter;
 }
 
-void LibSerialBridge::parseData(std::map<std::string, double> &/*data*/) {
+void LibSerialBridge::parseData(std::map<std::string, double> & /*data*/)
+{
   throw std::runtime_error("Not yet implemented (LibSerialBridge::parseData).");
 }
 
