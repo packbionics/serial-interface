@@ -20,14 +20,19 @@ TEST(test_libserial_bridge, test_constructor) {
 
   serial::ImuPtr imuPtr = bridge->getImu(0);
 
-  serial::LinearAccel accel = imuPtr->getLinear();
-  serial::AngularVel vel = imuPtr->getAngular();
+  std::vector<double> accel = imuPtr->getLinear();
+  std::vector<double> vel = imuPtr->getAngular();
+  std::vector<double> orientation = imuPtr->getOrientation();
 
-  EXPECT_TRUE(abs(vel.getRoll()) < FLOAT_TOLERANCE);
-  EXPECT_TRUE(abs(vel.getPitch()) < FLOAT_TOLERANCE);
-  EXPECT_TRUE(abs(vel.getYaw()) < FLOAT_TOLERANCE);
+  for(size_t i = 0; i < accel.size(); i++) {
+    EXPECT_TRUE(abs(accel[i]) < FLOAT_TOLERANCE);
+  }
 
-  EXPECT_TRUE(abs(accel.getX()) < FLOAT_TOLERANCE);
-  EXPECT_TRUE(abs(accel.getY()) < FLOAT_TOLERANCE);
-  EXPECT_TRUE(abs(accel.getZ()) < FLOAT_TOLERANCE);
+  for(size_t i = 0; i < vel.size(); i++) {
+    EXPECT_TRUE(abs(vel[i]) < FLOAT_TOLERANCE);
+  }
+
+  for(size_t i = 0; i < orientation.size(); i++) {
+    EXPECT_TRUE(abs(orientation[i]) < FLOAT_TOLERANCE);
+  }
 }
