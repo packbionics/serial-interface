@@ -59,7 +59,9 @@ public:
    * @param linAccel structured representation of the linear acceleration
    * @param angVel structured representation of the angular velocity
    */
-  ImuFrame(const std::vector<double> orientation, const std::vector<double> & linAccel, const std::vector<double> & angVel)
+  ImuFrame(
+    const std::vector<double> orientation, const std::vector<double> & linAccel,
+    const std::vector<double> & angVel)
   : mOrientation(orientation), mLinAccel(linAccel), mAngVel(angVel)
   {}
 
@@ -69,8 +71,8 @@ public:
 
   /**
    * @brief Get the orientation
-   * 
-   * @return std::vector<double> 
+   *
+   * @return std::vector<double>
    */
   std::vector<double> getOrientation()
   {
@@ -79,8 +81,8 @@ public:
 
   /**
    * @brief Get the linear acceleration
-   * 
-   * @return std::vector<double> 
+   *
+   * @return std::vector<double>
    */
   std::vector<double> getLinear()
   {
@@ -89,8 +91,8 @@ public:
 
   /**
    * @brief Get the angular velocity
-   * 
-   * @return std::vector<double> 
+   *
+   * @return std::vector<double>
    */
   std::vector<double> getAngular()
   {
@@ -98,7 +100,6 @@ public:
   }
 
 private:
-
   std::vector<double> mOrientation;
   std::vector<double> mLinAccel;
   std::vector<double> mAngVel;

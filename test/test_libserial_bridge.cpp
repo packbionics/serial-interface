@@ -24,15 +24,15 @@ TEST(test_libserial_bridge, test_constructor) {
   std::vector<double> vel = imuPtr->getAngular();
   std::vector<double> orientation = imuPtr->getOrientation();
 
-  for(size_t i = 0; i < accel.size(); i++) {
+  for (size_t i = 0; i < accel.size(); i++) {
     EXPECT_TRUE(abs(accel[i]) < FLOAT_TOLERANCE);
   }
 
-  for(size_t i = 0; i < vel.size(); i++) {
+  for (size_t i = 0; i < vel.size(); i++) {
     EXPECT_TRUE(abs(vel[i]) < FLOAT_TOLERANCE);
   }
 
-  for(size_t i = 0; i < orientation.size(); i++) {
+  for (size_t i = 0; i < orientation.size(); i++) {
     EXPECT_TRUE(abs(orientation[i]) < FLOAT_TOLERANCE);
   }
 }
