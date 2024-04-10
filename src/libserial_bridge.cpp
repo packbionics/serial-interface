@@ -80,9 +80,20 @@ ImuPtr LibSerialBridge::getImu(size_t index)
   return imus[index];
 }
 
+double LibSerialBridge::getKneeAngle()
+{
+  return 0.0;
+}
+
 void LibSerialBridge::addImu()
 {
   imus.push_back(std::make_shared<ImuFrame>());
+}
+
+bool LibSerialBridge::updateInput(const std::vector<double> inputs)
+{
+  std::string serializedData = "";
+  return writeData(serializedData);
 }
 
 bool LibSerialBridge::writeData(const std::string & data)

@@ -66,7 +66,7 @@ public:
   {}
 
   ImuFrame()
-  : mOrientation({0.0, 0.0, 0.0, 0.0}), mLinAccel({0.0, 0.0, 0.0}), mAngVel({0.0, 0.0, 0.0})
+  : mOrientation({0.0, 0.0, 0.0, 1.0}), mLinAccel({1.0, 0.0, 0.0}), mAngVel({0.0, 0.0, 0.0})
   {}
 
   /**

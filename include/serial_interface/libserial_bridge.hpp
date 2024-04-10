@@ -86,12 +86,20 @@ public:
   ImuPtr getImu(size_t index);
 
   /**
-   * @brief Sends a stream of bytes through the serial connections
-   *
-   * @param data collection of bytes to send to controller
-   * @return true if the data was successfully written to the port or false otherwise
+   * @brief Get the Knee Angle in radians
+   * 
+   * @return double knee angle of the leg in radians
    */
-  bool writeData(const std::string & data);
+  double getKneeAngle();
+
+  /**
+   * @brief Sends a collection of doubles as input commands through serial communication
+   *
+   * @param inputs input commands
+   * @return true if the commands were successfully sent
+   * @return false if there was an error in sending the commands
+   */
+  bool updateInput(const std::vector<double> inputs);
 
   /**
    * @brief Update the internal representation of the sensor measurements
@@ -105,6 +113,16 @@ private:
    *
    */
   void addImu();
+
+  /**
+   * @brief Sends a stream of bytes through the serial connections
+   *
+   * @param data collection of bytes to send to controller
+   * @return true if the data was successfully written to the port or
+   * @return false if the data failed to send
+   */
+  bool writeData(const std::string & data);
+
 
   /**
    * @brief Converts the raw data retrieved from the serial communication device into a structured format
