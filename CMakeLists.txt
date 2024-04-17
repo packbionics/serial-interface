@@ -13,7 +13,12 @@ find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(libserial REQUIRED)
 
-add_library(${PROJECT_NAME} src/libserial_bridge.cpp)
+set(SRC_FILES
+src/libserial_bridge.cpp
+src/serial_decoder.cpp
+)
+
+add_library(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(
   ${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
