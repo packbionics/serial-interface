@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classserial_1_1ImuFrame" kind="class" language="C++" prot="public">
+    <compoundname>serial::ImuFrame</compoundname>
+    <includes refid="frame__types_8hpp" local="no">frame_types.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classserial_1_1ImuFrame_1af0912d28ffb0be575672f7eb9b911e4a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::mOrientation</definition>
+        <argsstring></argsstring>
+        <name>mOrientation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="103" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1ImuFrame_1a19dd69c32a8f997ebddf6e1232c27ccc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::mLinAccel</definition>
+        <argsstring></argsstring>
+        <name>mLinAccel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="104" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1ImuFrame_1a7246437bbd584f4861591d5257f6fd6d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::mAngVel</definition>
+        <argsstring></argsstring>
+        <name>mAngVel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="105" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classserial_1_1ImuFrame_1a901c53869d11ce131b82eba9d092f7ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>serial::ImuFrame::ImuFrame</definition>
+        <argsstring>(const std::vector&lt; double &gt; orientation, const std::vector&lt; double &gt; &amp;linAccel, const std::vector&lt; double &gt; &amp;angVel)</argsstring>
+        <name>ImuFrame</name>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>orientation</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>linAccel</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>angVel</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new Imu Frame object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>linAccel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structured representation of the linear acceleration </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>angVel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structured representation of the angular velocity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="62" column="3" bodyfile="include/serial_interface/frame_types.hpp" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1ImuFrame_1ae5e7ed87871d6eb205f9d4ed1a6e9119" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>serial::ImuFrame::ImuFrame</definition>
+        <argsstring>()</argsstring>
+        <name>ImuFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="68" column="3" bodyfile="include/serial_interface/frame_types.hpp" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1ImuFrame_1a89da6509d5576a0881244e0d411b4fe7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::getOrientation</definition>
+        <argsstring>()</argsstring>
+        <name>getOrientation</name>
+        <briefdescription>
+<para>Get the orientation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;double&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="77" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1ImuFrame_1a5688dbfcdc84fc1e0c794b003fdb9051" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::getLinear</definition>
+        <argsstring>()</argsstring>
+        <name>getLinear</name>
+        <briefdescription>
+<para>Get the linear acceleration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;double&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="87" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1ImuFrame_1a60169f601fa558b6cb943fda4494eca8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; serial::ImuFrame::getAngular</definition>
+        <argsstring>()</argsstring>
+        <name>getAngular</name>
+        <briefdescription>
+<para>Get the angular velocity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;double&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/frame_types.hpp" line="97" column="15" bodyfile="include/serial_interface/frame_types.hpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structured representation of sensor data provided by an IMU (inertial measurement unit) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/serial_interface/frame_types.hpp" line="53" column="1" bodyfile="include/serial_interface/frame_types.hpp" bodystart="54" bodyend="106"/>
+    <listofallmembers>
+      <member refid="classserial_1_1ImuFrame_1a60169f601fa558b6cb943fda4494eca8" prot="public" virt="non-virtual"><scope>serial::ImuFrame</scope><name>getAngular</name></member>
+      <member refid="classserial_1_1ImuFrame_1a5688dbfcdc84fc1e0c794b003fdb9051" prot="public" virt="non-virtual"><scope>serial::ImuFrame</scope><name>getLinear</name></member>
+      <member refid="classserial_1_1ImuFrame_1a89da6509d5576a0881244e0d411b4fe7" prot="public" virt="non-virtual"><scope>serial::ImuFrame</scope><name>getOrientation</name></member>
+      <member refid="classserial_1_1ImuFrame_1a901c53869d11ce131b82eba9d092f7ae" prot="public" virt="non-virtual"><scope>serial::ImuFrame</scope><name>ImuFrame</name></member>
+      <member refid="classserial_1_1ImuFrame_1ae5e7ed87871d6eb205f9d4ed1a6e9119" prot="public" virt="non-virtual"><scope>serial::ImuFrame</scope><name>ImuFrame</name></member>
+      <member refid="classserial_1_1ImuFrame_1a7246437bbd584f4861591d5257f6fd6d" prot="private" virt="non-virtual"><scope>serial::ImuFrame</scope><name>mAngVel</name></member>
+      <member refid="classserial_1_1ImuFrame_1a19dd69c32a8f997ebddf6e1232c27ccc" prot="private" virt="non-virtual"><scope>serial::ImuFrame</scope><name>mLinAccel</name></member>
+      <member refid="classserial_1_1ImuFrame_1af0912d28ffb0be575672f7eb9b911e4a" prot="private" virt="non-virtual"><scope>serial::ImuFrame</scope><name>mOrientation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

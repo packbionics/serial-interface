@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classserial_1_1ImuFrame" kind="class"><name>serial::ImuFrame</name>
+    <member refid="classserial_1_1ImuFrame_1af0912d28ffb0be575672f7eb9b911e4a" kind="variable"><name>mOrientation</name></member>
+    <member refid="classserial_1_1ImuFrame_1a19dd69c32a8f997ebddf6e1232c27ccc" kind="variable"><name>mLinAccel</name></member>
+    <member refid="classserial_1_1ImuFrame_1a7246437bbd584f4861591d5257f6fd6d" kind="variable"><name>mAngVel</name></member>
+    <member refid="classserial_1_1ImuFrame_1a901c53869d11ce131b82eba9d092f7ae" kind="function"><name>ImuFrame</name></member>
+    <member refid="classserial_1_1ImuFrame_1ae5e7ed87871d6eb205f9d4ed1a6e9119" kind="function"><name>ImuFrame</name></member>
+    <member refid="classserial_1_1ImuFrame_1a89da6509d5576a0881244e0d411b4fe7" kind="function"><name>getOrientation</name></member>
+    <member refid="classserial_1_1ImuFrame_1a5688dbfcdc84fc1e0c794b003fdb9051" kind="function"><name>getLinear</name></member>
+    <member refid="classserial_1_1ImuFrame_1a60169f601fa558b6cb943fda4494eca8" kind="function"><name>getAngular</name></member>
+  </compound>
+  <compound refid="classserial_1_1LibSerialBridge" kind="class"><name>serial::LibSerialBridge</name>
+    <member refid="classserial_1_1LibSerialBridge_1a264b621a29c3cc0a87ac4a9022017968" kind="variable"><name>port</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a4d3b82e387bb6bcb8e721edaa676a8d6" kind="variable"><name>imus</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a3f42b93cdddd7bd5673a87eed7968dee" kind="variable"><name>RD_TIMEOUT</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a8333b2df5bced01b435d5597311c123d" kind="variable"><name>X_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a3a8acfcc3d702aa285e994b94443280c" kind="variable"><name>Y_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a366221c92e818c076071980f812358dd" kind="variable"><name>Z_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a3aa84de5a6f6cdfc36eafffc62a2a2b4" kind="variable"><name>ROLL_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1ae37b821f5985e4a754ec3af4af5749a3" kind="variable"><name>PITCH_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1ae29d7ba4151f592165bda51566075e36" kind="variable"><name>YAW_KEY</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1abe4c2c3168d7b749808ae53cd4b4259f" kind="function"><name>LibSerialBridge</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a23215f48a0cd3890d7be59dd8f9550ed" kind="function"><name>LibSerialBridge</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a7a256f66ae387344a7f000647c96bfd5" kind="function"><name>getImu</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1aa729f9ede7630b6a46c7c6aed21daea5" kind="function"><name>getKneeAngle</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1ae330753f53e84adfce91912f1d54887d" kind="function"><name>updateInput</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1afe11482b0ccb50faf7edeb078959e554" kind="function"><name>update</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1afe0770d9cf23547cae9859f59d42432c" kind="function"><name>addImu</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1ad617d5a7095f513b89ea9adae23f6aeb" kind="function"><name>writeData</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1ae686ea50e1d3c2e351c49f242f725abb" kind="function"><name>parseData</name></member>
+    <member refid="classserial_1_1LibSerialBridge_1a310c0b69bc412f1ad0d94400e20b5757" kind="function"><name>readData</name></member>
+  </compound>
+  <compound refid="namespaceserial" kind="namespace"><name>serial</name>
+    <member refid="libserial__bridge_8hpp_1aaaef0983335275d344f18c6b08b8612b" kind="typedef"><name>ImuPtr</name></member>
+  </compound>
+  <compound refid="frame__types_8hpp" kind="file"><name>frame_types.hpp</name>
+  </compound>
+  <compound refid="libserial__bridge_8hpp" kind="file"><name>libserial_bridge.hpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_271d835c776980c62d2aacc66dfd38db" kind="dir"><name>include/serial_interface</name>
+  </compound>
+</doxygenindex>

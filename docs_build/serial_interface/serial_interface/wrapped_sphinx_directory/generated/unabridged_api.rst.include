@@ -1,0 +1,63 @@
+
+Full C++ API
+------------
+
+Namespaces
+**********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   namespace_serial.rst
+
+Classes and Structs
+*******************
+
+
+.. toctree::
+   :maxdepth: 1
+
+   classserial_1_1ImuFrame.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   classserial_1_1LibSerialBridge.rst
+
+Typedefs
+********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   typedef_libserial__bridge_8hpp_1aaaef0983335275d344f18c6b08b8612b.rst
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   dir_include_serial_interface.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_serial_interface_frame_types.hpp.rst
+
+.. toctree::
+   :maxdepth: 1
+
+   file_include_serial_interface_libserial_bridge.hpp.rst

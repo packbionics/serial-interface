@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceserial" kind="namespace" language="C++">
+    <compoundname>serial</compoundname>
+    <innerclass refid="classserial_1_1ImuFrame" prot="public">serial::ImuFrame</innerclass>
+    <innerclass refid="classserial_1_1LibSerialBridge" prot="public">serial::LibSerialBridge</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="libserial__bridge_8hpp_1aaaef0983335275d344f18c6b08b8612b" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classserial_1_1ImuFrame" kindref="compound">ImuFrame</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;ImuFrame&gt; serial::ImuPtr</definition>
+        <argsstring></argsstring>
+        <name>ImuPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="53" column="25" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/serial_interface/frame_types.hpp" line="46" column="1"/>
+  </compounddef>
+</doxygen>

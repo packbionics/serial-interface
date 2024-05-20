@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_271d835c776980c62d2aacc66dfd38db" kind="dir">
+    <compoundname>include/serial_interface</compoundname>
+    <innerfile refid="frame__types_8hpp">frame_types.hpp</innerfile>
+    <innerfile refid="libserial__bridge_8hpp">libserial_bridge.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/serial_interface/"/>
+  </compounddef>
+</doxygen>

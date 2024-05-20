@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classserial_1_1LibSerialBridge" kind="class" language="C++" prot="public">
+    <compoundname>serial::LibSerialBridge</compoundname>
+    <includes refid="libserial__bridge_8hpp" local="no">libserial_bridge.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a264b621a29c3cc0a87ac4a9022017968" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; LibSerial::SerialPort &gt;</type>
+        <definition>std::shared_ptr&lt;LibSerial::SerialPort&gt; serial::LibSerialBridge::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides an interface to the embedded controller through serial communication </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="147" column="19" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a4d3b82e387bb6bcb8e721edaa676a8d6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; ImuPtr &gt;</type>
+        <definition>std::vector&lt;ImuPtr&gt; serial::LibSerialBridge::imus</definition>
+        <argsstring></argsstring>
+        <name>imus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores data for one or more inertial measurement units (IMU) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="150" column="15" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a3f42b93cdddd7bd5673a87eed7968dee" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t serial::LibSerialBridge::RD_TIMEOUT</definition>
+        <argsstring></argsstring>
+        <name>RD_TIMEOUT</name>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="152" column="27" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a8333b2df5bced01b435d5597311c123d" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::X_KEY</definition>
+        <argsstring></argsstring>
+        <name>X_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="154" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a3a8acfcc3d702aa285e994b94443280c" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::Y_KEY</definition>
+        <argsstring></argsstring>
+        <name>Y_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="155" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a366221c92e818c076071980f812358dd" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::Z_KEY</definition>
+        <argsstring></argsstring>
+        <name>Z_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="156" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1a3aa84de5a6f6cdfc36eafffc62a2a2b4" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::ROLL_KEY</definition>
+        <argsstring></argsstring>
+        <name>ROLL_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="158" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1ae37b821f5985e4a754ec3af4af5749a3" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::PITCH_KEY</definition>
+        <argsstring></argsstring>
+        <name>PITCH_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="159" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classserial_1_1LibSerialBridge_1ae29d7ba4151f592165bda51566075e36" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string serial::LibSerialBridge::YAW_KEY</definition>
+        <argsstring></argsstring>
+        <name>YAW_KEY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="160" column="22" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1abe4c2c3168d7b749808ae53cd4b4259f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>serial::LibSerialBridge::LibSerialBridge</definition>
+        <argsstring>()</argsstring>
+        <name>LibSerialBridge</name>
+        <briefdescription>
+<para>Construct a new Lib Serial Adapter object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="66" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1a23215f48a0cd3890d7be59dd8f9550ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>serial::LibSerialBridge::LibSerialBridge</definition>
+        <argsstring>(std::string name, LibSerial::BaudRate baudRate)</argsstring>
+        <name>LibSerialBridge</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>LibSerial::BaudRate</type>
+          <declname>baudRate</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new Lib Serial Adapter object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file name of the serial port </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baudRate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BAUD rate at which data is communicated </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>LibSerial::AlreadyOpen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the port is alread open </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>LibSerial::OpenFailed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the port could not be opened </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>UnsupportedBaudRate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if an invalid BAUD rate is provided </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>std::invalid_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if an invalid argument is provided </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="78" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1a7a256f66ae387344a7f000647c96bfd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ImuPtr</type>
+        <definition>ImuPtr serial::LibSerialBridge::getImu</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>getImu</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get the Imu object based on a given index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>identifies the IMU to retrieve </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ImuPtr reference to the IMU data </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1aa729f9ede7630b6a46c7c6aed21daea5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double serial::LibSerialBridge::getKneeAngle</definition>
+        <argsstring>()</argsstring>
+        <name>getKneeAngle</name>
+        <briefdescription>
+<para>Get the Knee Angle in radians. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>double knee angle of the leg in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1ae330753f53e84adfce91912f1d54887d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool serial::LibSerialBridge::updateInput</definition>
+        <argsstring>(const std::vector&lt; double &gt; inputs)</argsstring>
+        <name>updateInput</name>
+        <param>
+          <type>const std::vector&lt; double &gt;</type>
+          <declname>inputs</declname>
+        </param>
+        <briefdescription>
+<para>Sends a collection of doubles as input commands through serial communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inputs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>input commands </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the commands were successfully sent </para>
+</simplesect>
+<simplesect kind="return"><para>false if there was an error in sending the commands </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="102" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1afe11482b0ccb50faf7edeb078959e554" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void serial::LibSerialBridge::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Update the internal representation of the sensor measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="108" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1afe0770d9cf23547cae9859f59d42432c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void serial::LibSerialBridge::addImu</definition>
+        <argsstring>()</argsstring>
+        <name>addImu</name>
+        <briefdescription>
+<para>Add a representation of an IMU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="115" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1ad617d5a7095f513b89ea9adae23f6aeb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool serial::LibSerialBridge::writeData</definition>
+        <argsstring>(const std::string &amp;data)</argsstring>
+        <name>writeData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Sends a stream of bytes through the serial connections. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>collection of bytes to send to controller </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the data was successfully written to the port or </para>
+</simplesect>
+<simplesect kind="return"><para>false if the data failed to send </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="124" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1ae686ea50e1d3c2e351c49f242f725abb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void serial::LibSerialBridge::parseData</definition>
+        <argsstring>(std::map&lt; std::string, double &gt; &amp;data)</argsstring>
+        <name>parseData</name>
+        <param>
+          <type>std::map&lt; std::string, double &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Converts the raw data retrieved from the serial communication device into a structured format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>represents the measurements from the sensors, the keys represent the semantic meaning of the values </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="132" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classserial_1_1LibSerialBridge_1a310c0b69bc412f1ad0d94400e20b5757" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t serial::LibSerialBridge::readData</definition>
+        <argsstring>(std::string &amp;data, size_t capacity)</argsstring>
+        <name>readData</name>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+<para>Read a sequence of data and store it in the given buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The given buffer is assumed to be at least as large as the given capacity. The function may return a value less than the capacity if there is no more data to read.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>buffer to store processed data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>capacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>upper bound on the number of bytes read </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of bytes processed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/serial_interface/libserial_bridge.hpp" line="144" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides a direct interface to sensors and actuators. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/serial_interface/libserial_bridge.hpp" line="59" column="1" bodyfile="include/serial_interface/libserial_bridge.hpp" bodystart="60" bodyend="161"/>
+    <listofallmembers>
+      <member refid="classserial_1_1LibSerialBridge_1afe0770d9cf23547cae9859f59d42432c" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>addImu</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a7a256f66ae387344a7f000647c96bfd5" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>getImu</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1aa729f9ede7630b6a46c7c6aed21daea5" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>getKneeAngle</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a4d3b82e387bb6bcb8e721edaa676a8d6" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>imus</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1abe4c2c3168d7b749808ae53cd4b4259f" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>LibSerialBridge</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a23215f48a0cd3890d7be59dd8f9550ed" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>LibSerialBridge</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1ae686ea50e1d3c2e351c49f242f725abb" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>parseData</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1ae37b821f5985e4a754ec3af4af5749a3" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>PITCH_KEY</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a264b621a29c3cc0a87ac4a9022017968" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>port</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a3f42b93cdddd7bd5673a87eed7968dee" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>RD_TIMEOUT</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a310c0b69bc412f1ad0d94400e20b5757" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>readData</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a3aa84de5a6f6cdfc36eafffc62a2a2b4" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>ROLL_KEY</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1afe11482b0ccb50faf7edeb078959e554" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>update</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1ae330753f53e84adfce91912f1d54887d" prot="public" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>updateInput</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1ad617d5a7095f513b89ea9adae23f6aeb" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>writeData</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a8333b2df5bced01b435d5597311c123d" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>X_KEY</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a3a8acfcc3d702aa285e994b94443280c" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>Y_KEY</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1ae29d7ba4151f592165bda51566075e36" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>YAW_KEY</name></member>
+      <member refid="classserial_1_1LibSerialBridge_1a366221c92e818c076071980f812358dd" prot="private" virt="non-virtual"><scope>serial::LibSerialBridge</scope><name>Z_KEY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,18 @@
+
+Class Hierarchy
+---------------
+
+
+.. raw:: html
+
+   <ul class="treeView" id="class-treeView">
+     <li>
+       <ul class="collapsibleList">
+         <li class="lastChild">Namespace <a href="namespace_serial.html#namespace-serial">serial</a><ul><li>Class <a href="classserial_1_1ImuFrame.html#exhale-class-classserial-1-1ImuFrame">ImuFrame</a></li><li class="lastChild">Class <a href="classserial_1_1LibSerialBridge.html#exhale-class-classserial-1-1LibSerialBridge">LibSerialBridge</a></li></ul></li>
+       </ul>
+     </li><!-- only tree view element -->
+   </ul><!-- /treeView class-treeView -->
+
+.. end raw html for treeView
+
+
