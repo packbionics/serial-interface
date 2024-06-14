@@ -87,7 +87,7 @@ public:
 
   /**
    * @brief Get the Knee Angle in radians
-   * 
+   *
    * @return double knee angle of the leg in radians
    */
   double getKneeAngle();
