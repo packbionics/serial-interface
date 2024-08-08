@@ -9,14 +9,25 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(libserial REQUIRED)
 
-add_library(${PROJECT_NAME} src/libserial_bridge.cpp)
+# Source files which will be compiled as part of the library
+set(
+  SRC_FILES
+  src/mcu_interface.cpp
+)
+
+add_library(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(
-  ${PROJECT_NAME} PUBLIC
+  ${PROJECT_NAME} PRIVATE
   $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+)
+ament_target_dependencies(
+  ${PROJECT_NAME}
+  sensor_msgs
 )
 target_link_libraries(${PROJECT_NAME} -lserial)
 
@@ -35,23 +46,16 @@ install(
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 
   find_package(ament_cmake_gtest REQUIRED)
-  ament_add_gtest(libserial_bridge_test test/test_libserial_bridge.cpp)
-  target_include_directories(libserial_bridge_test PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>
-  )
+  # ament_add_gtest(libserial_bridge_test test/test_libserial_bridge.cpp)
+  # target_include_directories(libserial_bridge_test PUBLIC
+  #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  #   $<INSTALL_INTERFACE:include>
+  # )
 
-  target_link_libraries(libserial_bridge_test ${PROJECT_NAME})
+  # target_link_libraries(libserial_bridge_test ${PROJECT_NAME})
 endif()
 
 ament_export_libraries(

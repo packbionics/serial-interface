@@ -1,0 +1,5 @@
+cross_reference/
+docs_build/
+docs_output/
+build/
+.vscode/

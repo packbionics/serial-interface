@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>serial_interface</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>Provides an interface for communicating with a device through a serial port</description>
   <maintainer email="anthonybrown0528@protonmail.com">anthony</maintainer>
   <license>MIT</license>
