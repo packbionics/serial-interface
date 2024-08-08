@@ -19,33 +19,44 @@
 // THE SOFTWARE.
 
 
-#include "serial_interface/mcu_interface.hpp"
+#ifndef SERIAL_INTERFACE__STREAM_READER_HPP_
+#define SERIAL_INTERFACE__STREAM_READER_HPP_
+
+#include <vector>
+#include <string>
 
 
-MCUInterface::MCUInterface(std::shared_ptr<StreamReader> port)
+/**
+ * @brief Provides an interface for reading a stream of characters
+ *
+ */
+class StreamReader
 {
-  setPort(port);
-}
+public:
+  /**
+   * @brief Construct a new Stream Reader object
+   *
+   * @param source describes the source of the character stream
+   */
+  explicit StreamReader(const std::string & /*source*/)
+  {}
 
-void MCUInterface::processStream(std::shared_ptr<StreamParser> mStreamParser)
-{
-  // Keep reading with the parser until the stream runs out of data
-  while (std::shared_ptr<SensorState> nextState = mStreamParser->next(mPort)) {
-    mState = nextState;
-  }
-}
+  /**
+   * @brief Get the next sequence of bytes
+   *
+   * @param numBytes maximum number of bytes to read before returning
+   * @return std::string
+   */
+  virtual std::string getBytes(size_t numBytes) = 0;
 
-sensor_msgs::msg::Imu::SharedPtr MCUInterface::getImu()
-{
-  return std::make_shared<sensor_msgs::msg::Imu>(mState->imu);
-}
+  /**
+   * @brief Get the next line
+   *
+   * @param delimiter sequence of characters used to mark the end of a line
+   * @return std::string
+   */
+  virtual std::string getLine(const std::string & delimiter) = 0;
+};
 
-double MCUInterface::getKneeSignal()
-{
-  return mState->kneeSignal;
-}
 
-void MCUInterface::setPort(std::shared_ptr<StreamReader> port)
-{
-  this->mPort = port;
-}
+#endif  // SERIAL_INTERFACE__STREAM_READER_HPP_

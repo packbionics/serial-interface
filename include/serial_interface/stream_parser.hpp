@@ -22,7 +22,7 @@
 #ifndef SERIAL_INTERFACE__STREAM_PARSER_HPP_
 #define SERIAL_INTERFACE__STREAM_PARSER_HPP_
 
-#include <libserial/SerialPort.h>
+#include "stream_reader.hpp"
 
 #include <memory>
 
@@ -39,8 +39,7 @@
 class StreamParser
 {
 public:
-  virtual std::shared_ptr<SensorState> getCurrentState() = 0;
-  virtual void next(std::shared_ptr<LibSerial::SerialPort> port) = 0;
+  virtual std::shared_ptr<SensorState> next(std::shared_ptr<StreamReader> port) = 0;
 };
 
 

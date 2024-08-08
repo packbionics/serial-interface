@@ -19,33 +19,34 @@
 // THE SOFTWARE.
 
 
-#include "serial_interface/mcu_interface.hpp"
+#include "fake/fake_port.hpp"
 
 
-MCUInterface::MCUInterface(std::shared_ptr<StreamReader> port)
+FakePort::FakePort(const std::string & portName)
+: StreamReader(portName)
 {
-  setPort(port);
+  mTestData =
+    "0.5\n"
+    "-0.2\n"
+    "57.309\n";
 }
 
-void MCUInterface::processStream(std::shared_ptr<StreamParser> mStreamParser)
+std::string FakePort::getBytes(std::size_t /*numBytes*/)
 {
-  // Keep reading with the parser until the stream runs out of data
-  while (std::shared_ptr<SensorState> nextState = mStreamParser->next(mPort)) {
-    mState = nextState;
+  return "";
+}
+
+std::string FakePort::getLine(const std::string & delimiter)
+{
+  const size_t delimiterPos = mTestData.find(delimiter);
+
+  // Check if there are no more complete lines to read
+  if (std::string::npos == delimiterPos) {
+    return "";
   }
-}
 
-sensor_msgs::msg::Imu::SharedPtr MCUInterface::getImu()
-{
-  return std::make_shared<sensor_msgs::msg::Imu>(mState->imu);
-}
+  std::string result = mTestData.substr(0, delimiterPos);
 
-double MCUInterface::getKneeSignal()
-{
-  return mState->kneeSignal;
-}
-
-void MCUInterface::setPort(std::shared_ptr<StreamReader> port)
-{
-  this->mPort = port;
+  mTestData = mTestData.substr(delimiterPos + 1);
+  return result;
 }

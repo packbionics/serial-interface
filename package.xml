@@ -4,7 +4,7 @@
   <name>serial_interface</name>
   <version>0.2.0</version>
   <description>Provides an interface for communicating with a device through a serial port</description>
-  <maintainer email="anthonybrown0528@protonmail.com">anthony</maintainer>
+  <maintainer email="anthonybrown0528@protonmail.com">Anthony Brown</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

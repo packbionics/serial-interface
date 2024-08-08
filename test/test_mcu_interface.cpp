@@ -22,9 +22,29 @@
 #include <gtest/gtest.h>
 #include <serial_interface/mcu_interface.hpp>
 
+#include "fake/fake_port.hpp"
+#include "fake/fake_stream_parser.hpp"
+
 #define FLOAT_TOLERANCE 0.001
 
 
-TEST(test_libserial_bridge, test_constructor)
+TEST(test_mcu_interface, test_process_stream)
 {
+  const double EXPECTED_KNEE_SIGNAL = 57.309;
+
+  // Instantiate dummy objects to provide data and basic logic
+  std::shared_ptr<FakePort> fakePort = std::make_shared<FakePort>("");
+  std::shared_ptr<FakeStreamParser> fakeParser = std::make_shared<FakeStreamParser>();
+
+  // Create an interface and process available dummy data with the parser
+  std::shared_ptr<MCUInterface> testInterface = std::make_shared<MCUInterface>(fakePort);
+  testInterface->processStream(fakeParser);
+
+  // For this stream and parser, the IMU state should not be null
+  sensor_msgs::msg::Imu::SharedPtr imuState = testInterface->getImu();
+  EXPECT_NE(nullptr, imuState);
+
+  // For this stream and parser, the knee signal should have the expected value
+  double kneeSignal = testInterface->getKneeSignal();
+  EXPECT_FLOAT_EQ(EXPECTED_KNEE_SIGNAL, kneeSignal);
 }

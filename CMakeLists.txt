@@ -5,7 +5,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
@@ -49,13 +49,15 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 
   find_package(ament_cmake_gtest REQUIRED)
-  # ament_add_gtest(libserial_bridge_test test/test_libserial_bridge.cpp)
-  # target_include_directories(libserial_bridge_test PUBLIC
-  #   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  #   $<INSTALL_INTERFACE:include>
-  # )
 
-  # target_link_libraries(libserial_bridge_test ${PROJECT_NAME})
+  # Add test suite for the MCUInterface class
+  ament_add_gtest(mcu_interface_test test/test_mcu_interface.cpp test/fake_port.cpp test/fake_stream_parser.cpp)
+  target_include_directories(mcu_interface_test PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/test>
+    $<INSTALL_INTERFACE:include>
+  )
+  target_link_libraries(mcu_interface_test ${PROJECT_NAME} -lserial)
 endif()
 
 ament_export_libraries(

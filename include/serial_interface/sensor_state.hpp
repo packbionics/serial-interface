@@ -29,13 +29,11 @@
 struct SensorState
 {
   SensorState(sensor_msgs::msg::Imu imu, double kneeSignal)
-  {
-    this->imu = imu;
-    this->kneeSignal = kneeSignal;
-  }
+  : imu(imu), kneeSignal(kneeSignal)
+  {}
 
-  sensor_msgs::msg::Imu imu;
-  double kneeSignal;
+  const sensor_msgs::msg::Imu imu;
+  const double kneeSignal;
 };
 
 

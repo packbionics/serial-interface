@@ -19,33 +19,19 @@
 // THE SOFTWARE.
 
 
-#include "serial_interface/mcu_interface.hpp"
+#ifndef FAKE__FAKE_STREAM_PARSER_HPP_
+#define FAKE__FAKE_STREAM_PARSER_HPP_
+
+#include <memory>
+
+#include <serial_interface/stream_parser.hpp>
 
 
-MCUInterface::MCUInterface(std::shared_ptr<StreamReader> port)
+class FakeStreamParser : public StreamParser
 {
-  setPort(port);
-}
+public:
+  std::shared_ptr<SensorState> next(std::shared_ptr<StreamReader> port) override;
+};
 
-void MCUInterface::processStream(std::shared_ptr<StreamParser> mStreamParser)
-{
-  // Keep reading with the parser until the stream runs out of data
-  while (std::shared_ptr<SensorState> nextState = mStreamParser->next(mPort)) {
-    mState = nextState;
-  }
-}
 
-sensor_msgs::msg::Imu::SharedPtr MCUInterface::getImu()
-{
-  return std::make_shared<sensor_msgs::msg::Imu>(mState->imu);
-}
-
-double MCUInterface::getKneeSignal()
-{
-  return mState->kneeSignal;
-}
-
-void MCUInterface::setPort(std::shared_ptr<StreamReader> port)
-{
-  this->mPort = port;
-}
+#endif  // FAKE__FAKE_STREAM_PARSER_HPP_

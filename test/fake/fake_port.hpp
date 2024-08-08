@@ -19,33 +19,30 @@
 // THE SOFTWARE.
 
 
-#include "serial_interface/mcu_interface.hpp"
+#ifndef FAKE__FAKE_PORT_HPP_
+#define FAKE__FAKE_PORT_HPP_
+
+#include <string>
+
+#include <serial_interface/stream_reader.hpp>
 
 
-MCUInterface::MCUInterface(std::shared_ptr<StreamReader> port)
+/**
+ * @brief Defines a testing interface to simulate the behavior of reading a stream of characters
+ *
+ */
+class FakePort : public StreamReader
 {
-  setPort(port);
-}
+public:
+  explicit FakePort(const std::string & portName);
 
-void MCUInterface::processStream(std::shared_ptr<StreamParser> mStreamParser)
-{
-  // Keep reading with the parser until the stream runs out of data
-  while (std::shared_ptr<SensorState> nextState = mStreamParser->next(mPort)) {
-    mState = nextState;
-  }
-}
+  std::string getBytes(std::size_t numBytes) override;
 
-sensor_msgs::msg::Imu::SharedPtr MCUInterface::getImu()
-{
-  return std::make_shared<sensor_msgs::msg::Imu>(mState->imu);
-}
+  std::string getLine(const std::string & delimiter) override;
 
-double MCUInterface::getKneeSignal()
-{
-  return mState->kneeSignal;
-}
+private:
+  std::string mTestData;
+};
 
-void MCUInterface::setPort(std::shared_ptr<StreamReader> port)
-{
-  this->mPort = port;
-}
+
+#endif  // FAKE__FAKE_PORT_HPP_

@@ -22,11 +22,10 @@
 #ifndef SERIAL_INTERFACE__MCU_INTERFACE_HPP_
 #define SERIAL_INTERFACE__MCU_INTERFACE_HPP_
 
-#include <libserial/SerialPort.h>
-
 #include <memory>
 #include <sensor_msgs/msg/imu.hpp>
 
+#include "stream_reader.hpp"
 #include "sensor_state.hpp"
 #include "stream_parser.hpp"
 
@@ -47,20 +46,20 @@ public:
    *
    * @param port pointer to a handler for reading a stream of characters from a microcontroller
    */
-  explicit MCUInterface(std::shared_ptr<LibSerial::SerialPort> port);
+  explicit MCUInterface(std::shared_ptr<StreamReader> port);
 
   /**
    * @brief Update the internal state of the interface with the latest information from the MCU
    *
    */
-  void processStream();
+  void processStream(std::shared_ptr<StreamParser> mStreamParser);
 
   /**
    * @brief Get the Imu object
    *
-   * @return std::shared_ptr<sensor_msgs::msg::Imu>
+   * @return sensor_msgs::msg::Imu::SharedPtr
    */
-  std::shared_ptr<sensor_msgs::msg::Imu> getImu();
+  sensor_msgs::msg::Imu::SharedPtr getImu();
 
   /**
    * @brief Get the Knee Signal object
@@ -70,12 +69,10 @@ public:
   double getKneeSignal();
 
 private:
-  void setPort(std::shared_ptr<LibSerial::SerialPort> port);
-  void setStreamParser(std::shared_ptr<StreamParser> streamParser);
+  void setPort(std::shared_ptr<StreamReader> port);
 
-  std::shared_ptr<LibSerial::SerialPort> mPort;
+  std::shared_ptr<StreamReader> mPort;
   std::shared_ptr<SensorState> mState;
-  std::shared_ptr<StreamParser> mStreamParser;
 };
 
 
