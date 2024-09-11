@@ -26,13 +26,27 @@
 #include <sensor_msgs/msg/imu.hpp>
 
 
+/**
+ * @brief Represents a snapshot of the sensor values recorded from an MCU
+ * 
+ */
 struct SensorState
 {
+
+  /**
+   * @brief Construct a new Sensor State object
+   * 
+   * @param imu snapshot of the sensor data from an IMU
+   * @param kneeSignal snapshot of the sensor data from the knee motor encoder
+   */
   SensorState(sensor_msgs::msg::Imu imu, double kneeSignal)
   : imu(imu), kneeSignal(kneeSignal)
   {}
 
+  /** Snapshot of the sensor data from an IMU */
   const sensor_msgs::msg::Imu imu;
+
+  /** Snapshot of the sensor data from the knee motor encoder */
   const double kneeSignal;
 };
 

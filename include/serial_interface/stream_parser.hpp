@@ -39,6 +39,17 @@
 class StreamParser
 {
 public:
+
+  /**
+   * @brief Retrieve the next sensor state
+   * 
+   * This function generates and returns sensor data from the next available
+   * chunk of data from the input stream. If a field is not contained in the
+   * data chunk, it is assigned a sentinel value.
+   * 
+   * @param port source of the data stream
+   * @return std::shared_ptr<SensorState> 
+   */
   virtual std::shared_ptr<SensorState> next(std::shared_ptr<StreamReader> port) = 0;
 };
 

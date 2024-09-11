@@ -30,6 +30,7 @@ ament_target_dependencies(
   sensor_msgs
 )
 target_link_libraries(${PROJECT_NAME} -lserial)
+target_compile_options(${PROJECT_NAME} PRIVATE -fPIC)
 
 install(
   DIRECTORY include/${PROJECT_NAME}
